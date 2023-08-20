@@ -1,0 +1,19 @@
+﻿services:
+  quartznetexample:
+    image: quartznetexample
+    build:
+      context: .
+      dockerfile: QuartzNetExample/Dockerfile
+    ports:
+      - 8080:80
+      - 4433:443
+
+  postgresql:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Password123.
+      POSTGRES_USER: postgres
+      POSTGRES_DB: Quartz
+    ports:
+      - "5432:5432"    
